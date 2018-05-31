@@ -19,7 +19,10 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {            
-            GenerateMenu();
+//            GenerateMenu();
+            StudentModel model = new StudentModel();
+            Student student = new Student();
+            model.Save(student);
         }
        
         private static void SearchByName()
