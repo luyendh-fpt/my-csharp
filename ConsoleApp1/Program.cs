@@ -7,13 +7,21 @@ namespace ConsoleApp1
 {
     class Program
     {
-        private static List<Student> list = new List<Student>();
+        private static List<Student> list = new List<Student>()
+        {
+            new Student("A001", "Xuan Hung 1", "xuanhung@gmail.com", "09123312"),
+            new Student("A002", "Xuan Hung 2", "xuanhung@gmail.com", "09123312"),
+            new Student("A003", "Xuan Hung 3", "xuanhung@gmail.com", "09123312"),
+            new Student("A004", "Xuan Hung 4", "xuanhung@gmail.com", "09123312"),
+            new Student("A005", "Xuan Hung 5", "xuanhung@gmail.com", "09123312"),
+            new Student("A006", "Xuan Hung 6", "xuanhung@gmail.com", "09123312")
+        };
 
         static void Main(string[] args)
-        {
+        {            
             GenerateMenu();
         }
-        
+       
         private static void SearchByName()
         {
             Console.WriteLine("Please enter name to search: ");
@@ -24,7 +32,7 @@ namespace ConsoleApp1
                 if (student.Name == searchKey)
                 {
                     Console.WriteLine("Found: ");
-                    Console.WriteLine(student.RollNumber + " - " + student.Name);                    
+                    Console.WriteLine(student.RollNumber + " - " + student.Name);
                 }
             }
         }
@@ -45,10 +53,14 @@ namespace ConsoleApp1
 
         private static void DisplayStudent()
         {
+            Console.WriteLine("{0, -20} {1, -20}", "Name", "RollNumber");
+            Console.WriteLine("----------------------------------------------------");
             foreach (var student in list)
             {
-                Console.WriteLine(student.Name);
+                Console.WriteLine("{0, -20} {1, -20}", student.Name, student.RollNumber);
             }
+
+            Console.ReadLine();
         }
 
         private static void GenerateMenu()
@@ -80,7 +92,5 @@ namespace ConsoleApp1
                 }
             }
         }
-
-        
     }
 }
